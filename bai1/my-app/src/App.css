@@ -1,0 +1,106 @@
+html, body, div, span, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, address,
+del, em, img, small, strong, b, u, i, hr,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+button,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  word-wrap: break-word;
+}
+html {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+caption, th, td {
+  text-align: inherit;
+  font-weight: inherit;
+  vertical-align: middle;
+}
+q, blockquote {
+  quotes: none;
+}
+a img {
+  border: none;
+}
+article, aside, details, figure, footer, header, menu, nav, section, summary {
+  display: block;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: calc(100vh - 110px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header ul {
+  display: flex;
+}
+
+.header ul li {
+  margin-right: 20px;
+}
+.header ul li:first-child {
+  margin-left: 20px;
+}
+
+.footer {
+  padding: 20px;
+}
