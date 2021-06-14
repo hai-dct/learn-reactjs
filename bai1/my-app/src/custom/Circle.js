@@ -7,7 +7,7 @@ class Circle extends Component {
     console.log('constructor circle');
     this.state = { 
       timer: props.number,
-      isTimerRunning: false
+      isTimerRunning: props.number != ''
     };
     this.timmer = null;
     this.startTimer = this.startTimer.bind(this);
@@ -17,6 +17,7 @@ class Circle extends Component {
 
   startTimer() {
     console.log('StartTimer');
+    console.log(this.props);
     if (this.state.timer > 0) {
       console.log('Start');
       this.timmer = setInterval(this.countDown, 1000);
@@ -43,13 +44,17 @@ class Circle extends Component {
     });
     
     // Check if we're at zero.
-    if (timer == 0) { 
+    if (timer === 0) { 
       this.stopTimer()
     }
   }
 
   componentDidMount() {
     console.log('componentDidMount');
+
+    if (this.state.isTimerRunning) {
+      this.startTimer();
+    }
   }
 
   componentDidUpdate() {
@@ -63,7 +68,7 @@ class Circle extends Component {
 
   render() {
     console.log('render Circle');
-    const { width, height, number } = this.props;
+    const { width, height } = this.props;
     const { timer, isTimerRunning } = this.state;
 
     const styles = {
