@@ -83,6 +83,7 @@ article, aside, details, figure, footer, header, menu, nav, section, summary {
 .header {
   display: flex;
   justify-content: space-between;
+  background-color:aquamarine;
 }
 
 .header-left {
@@ -103,4 +104,9 @@ article, aside, details, figure, footer, header, menu, nav, section, summary {
 
 .footer {
   padding: 20px;
+  background-color:aquamarine;
+}
+
+.circles {
+  display: flex;
 }
