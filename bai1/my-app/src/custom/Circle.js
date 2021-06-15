@@ -38,27 +38,28 @@ class Circle extends Component {
 
   countDown() {
     // Remove one second, set state so a re-render happens.
-    let timer = this.state.timer - 1;
-    this.setState({
-      timer: timer
-    });
+    this.setState(prev => ({
+      timer: prev.timer - 1
+    }));
     
     // Check if we're at zero.
-    if (timer === 0) { 
+    if (this.state.timer === 0) { 
       this.stopTimer()
     }
   }
 
   componentDidMount() {
     console.log('componentDidMount');
-
-    if (this.state.isTimerRunning) {
-      this.startTimer();
-    }
   }
 
-  componentDidUpdate() {
+
+  componentDidUpdate(previousProps, previousState) {
     console.log('componentDidUpdate');
+    if (previousProps.number !== this.props.number) {
+      this.setState({
+        timer: this.props.number
+      })
+    }
   }
 
   componentWillUnmount() {
