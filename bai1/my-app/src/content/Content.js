@@ -1,6 +1,6 @@
 import React from 'react';
-import { ReactComponent as Logo } from '../logo.svg';
 import Circle from '../custom/Circle';
+import About from '../module/About';
 
 class Content extends React.Component {
 
@@ -15,7 +15,7 @@ class Content extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({inputTime: event.target.value});
+    this.setState({ inputTime: event.target.value });
   }
 
   handleChangePage(page) {
@@ -26,14 +26,24 @@ class Content extends React.Component {
   }
 
   render() {
-    const { page, inputTime }  = this.state;
+    const { page, inputTime } = this.state;
+
+
+    const posts = [
+      { id: 1, title: 'Hello World 1', content: 'Welcome to learning React!' },
+      { id: 2, title: 'Hello World 2', content: 'Welcome to learning React!' },
+      { id: 3, title: 'Hello World 3', content: 'Welcome to learning React!' },
+      { id: 4, title: 'Hello World 4', content: 'Welcome to learning React!' },
+      { id: 5, title: 'Installation', content: 'You can install React from npm.' }
+    ];
+
     return (
-        <main className="main">
+      <main className="main">
         <button onClick={() => this.handleChangePage('home')}>Page Home</button>
         <button onClick={() => this.handleChangePage('about')}>Page About</button>
-        {(page === 'home') && 
+        {(page === 'home') &&
           <div className="circles">
-            <div>           
+            <div>
               <div>
                 <input type="text" value={inputTime} onChange={this.handleChange} />
               </div>
@@ -46,12 +56,7 @@ class Content extends React.Component {
             <Circle width='100px' height='100px' number='123' />
           </div>
         }
-        {(page === 'about') && 
-            <div className="App-header">
-              <Logo className="App-logo" alt="logo" />
-              <h2>About page !</h2>
-            </div>
-        }
+        {(page === 'about') && <About items={posts} /> }
       </main>
     )
   };

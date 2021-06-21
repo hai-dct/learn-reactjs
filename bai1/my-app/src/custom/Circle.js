@@ -5,9 +5,9 @@ class Circle extends Component {
   constructor(props) {
     super(props);
     console.log('constructor circle');
-    this.state = { 
+    this.state = {
       timer: props.number,
-      isTimerRunning: props.number != ''
+      isTimerRunning: props.number !== ''
     };
     this.timmer = null;
     this.startTimer = this.startTimer.bind(this);
@@ -41,9 +41,9 @@ class Circle extends Component {
     this.setState(prev => ({
       timer: prev.timer - 1
     }));
-    
+
     // Check if we're at zero.
-    if (this.state.timer === 0) { 
+    if (this.state.timer === 0) {
       this.stopTimer()
     }
   }
