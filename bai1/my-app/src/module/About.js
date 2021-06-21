@@ -16,12 +16,6 @@ class About extends Component {
         console.log(id);
 
         let { list } = this.state;
-        // let index = items.findIndex(obj => obj.id === id);
-
-        // if (index >= 0) {
-        //     items.splice(index, 1);
-        //     this.setState({'items': items});
-        // }
 
         const newList = list.filter((item) => item.id !== id);
         this.setState({ 'list': newList });
