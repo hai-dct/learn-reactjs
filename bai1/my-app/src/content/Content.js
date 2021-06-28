@@ -1,6 +1,7 @@
 import React from 'react';
 import Circle from '../custom/Circle';
-import About from '../module/About';
+import About from './module/About';
+import RegisterForm from './module/register/RegisterForm';
 
 class Content extends React.Component {
 
@@ -41,6 +42,7 @@ class Content extends React.Component {
       <main className="main">
         <button onClick={() => this.handleChangePage('home')}>Page Home</button>
         <button onClick={() => this.handleChangePage('about')}>Page About</button>
+        <button onClick={() => this.handleChangePage('register')}>Page Register</button>
         {(page === 'home') &&
           <div className="circles">
             <div>
@@ -57,6 +59,7 @@ class Content extends React.Component {
           </div>
         }
         {(page === 'about') && <About items={posts} /> }
+        {(page === 'register') && <RegisterForm items={posts} /> }
       </main>
     )
   };
