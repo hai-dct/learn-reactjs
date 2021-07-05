@@ -2,6 +2,7 @@ import React from 'react';
 import Circle from '../custom/Circle';
 import About from './module/About';
 import RegisterForm from './module/register/RegisterForm';
+import RegisterHookForm from './module/register/hooks/RegisterHookForm';
 
 class Content extends React.Component {
 
@@ -59,7 +60,7 @@ class Content extends React.Component {
           </div>
         }
         {(page === 'about') && <About items={posts} /> }
-        {(page === 'register') && <RegisterForm items={posts} /> }
+        {(page === 'register') && <RegisterHookForm items={posts} /> }
       </main>
     )
   };
