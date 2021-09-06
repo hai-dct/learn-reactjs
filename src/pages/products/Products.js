@@ -4,7 +4,7 @@ import ProductDetail from "./ProductDetail";
 
 function ProductList() {
 
-    const [products, setProducts] = useState([
+    const [products] = useState([
         {
             'name' : 'Product 1',
             'id' : 1,
