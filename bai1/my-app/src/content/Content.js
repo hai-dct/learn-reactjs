@@ -1,15 +1,58 @@
 import React from 'react';
 import { ReactComponent as Logo } from '../logo.svg';
+import Circle from '../custom/Circle';
 
 class Content extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      page: 'home',
+      inputTime: ''
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({inputTime: event.target.value});
+  }
+
+  handleChangePage(page) {
+    console.log(page);
+    this.setState({
+      page
+    });
+  }
+
   render() {
+    const { page, inputTime }  = this.state;
     return (
-        <main className="main" >
+        <main className="main">
+        <button onClick={() => this.handleChangePage('home')}>Page Home</button>
+        <button onClick={() => this.handleChangePage('about')}>Page About</button>
+        {(page === 'home') && 
+          <div className="circles">
+            <div>           
+              <div>
+                <input type="text" value={inputTime} onChange={this.handleChange} />
+              </div>
+              <div>
+                {this.state.inputTime}
+              </div>
+              <Circle width='100px' height='100px' number={inputTime} />
+            </div>
+            <Circle width='100px' height='100px' number='123' />
+            <Circle width='100px' height='100px' number='123' />
+          </div>
+        }
+        {(page === 'about') && 
             <div className="App-header">
               <Logo className="App-logo" alt="logo" />
-              <h2>Hello react !</h2>
+              <h2>About page !</h2>
             </div>
-        </main>
+        }
+      </main>
     )
   };
 }
