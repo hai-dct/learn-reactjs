@@ -1,0 +1,2 @@
+(this["webpackJsonpmy-app"]=this["webpackJsonpmy-app"]||[]).push([[5],{35:function(t,e,n){"use strict";n.r(e);n(0);var a=n(2),o=n(1);e.default=function(t){var e=t.component;return Object(o.jsx)(a.b,{render:function(){return localStorage.getItem("authToken")?Object(o.jsx)(e,{}):Object(o.jsx)(a.a,{to:{pathname:"/login"}})}})}}}]);
+//# sourceMappingURL=5.65e53677.chunk.js.map
