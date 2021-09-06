@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import UserRow from './UserHookRow';
+import React, { useState, useEffect } from "react";
+import UserHookRow from './UserHookRow';
 
 function RegisterHookForm() {
 
@@ -11,7 +11,35 @@ function RegisterHookForm() {
         info: ''
     });
     const [users, setUser] = useState([]);
+    const [page, setPage] = useState(1);
+    const [pagination, setPagination] = useState([]);
+
     const [id, setId] = useState(1);
+    
+    const handlePageChange = (e) => {
+        setPage(e.target.id);
+    };
+
+    const prevPage = () => {
+        if (page > 1) setPage(Number(page) - 1);
+    };
+
+    const nextPage = () => {
+        if (page < pagination.total_pages) setPage(Number(page) + 1);
+    };
+
+    let countPages = [];
+    for (let i = 0; i <= pagination.total_pages; i++) {
+        countPages.push(<button key={i} id={i} className="btn" onClick={handlePageChange}>{i}</button>)
+    }
+
+    useEffect(() => {
+        fetch(`https://reqres.in/api/users?page=${page}`).then(e => e.json())
+            .then(e => {
+                setUser(e.data);
+                setPagination({...pagination, ['total_pages']: e.total_pages});
+            });
+    }, [page]);
 
     function handleSubmit (e) {
         e.preventDefault();
@@ -117,11 +145,17 @@ function RegisterHookForm() {
             <tbody>
                 {
                     users.map(e => (
-                        <UserRow key={e.id} user={e} remove={handleRemove} />
+                        <UserHookRow key={e.id} user={e} remove={handleRemove} />
                     ))
                 }
             </tbody>
         </table>
+
+        <div className="buttons-pagination">
+            <button className="btn" onClick={prevPage}>prev</button>
+            {countPages}
+            <button className="btn" onClick={nextPage}>next</button>
+          </div>
     </div>
 }
 
